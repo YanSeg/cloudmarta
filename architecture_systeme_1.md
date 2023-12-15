@@ -73,20 +73,23 @@ ________________________________________________________________________________
 
 Gestion de l'infrastructure pour la réception et l'ingestion des données expérimentales.
 
-Proche Grenoble pour diminuer la latence. 
+Dans le but d'être proche de Grenoble pour diminuer la latence nous choisirons OVH.
+Le service de stockage à 60j sera celui de l'object storage avec Object Lock (WORM) afin de s'assurer d'une couche suppérieur de protection.
+En effet les données ne pourrons pas être modifiées ni supprimées aproir avoir été réécrites. 
 
 ## Serveurs de stockage des données : (IaaS)
 
 #### SLA, Objectif de Disponibilité : 99,9%
 
-    Fournit une infrastructure pour le stockage des données expérimentales.
-    Implémente des mécanismes de redondance et de sauvegarde au niveau de l'infrastructure.
+Fournit une infrastructure pour le stockage des données expérimentales.
+Implémente des mécanismes de redondance et de sauvegarde au niveau de l'infrastructure.
 
 ## Service de traitement : (PaaS)
 
-SLA https://d1.awsstatic.com/legal/AmazonComputeServiceLevelAgreement/Amazon_Compute_Service_Level_Agreement_French_2022-05-25.pdf
+Nous avons choisis la solution de chez OVH afin d'utiliser leur API et car cette solution correspond au fait que Data Processing s'appuie sur des onnées stockés par le service Object Storage. Leur solution permet une grande scalabilité et de la modularité pour la puissance de calcul, en fonction de vos besoin qui peuvent varrier du simple au double.
 
-Amazon EC2 car ` Les instances à la demande vous permettent de payer la capacité de calcul à l'heure, sans engagement à long terme`
+https://www.ovhcloud.com/fr/public-cloud/prices/#13575
+
 
 
 #### SLA, Objectif de Disponibilité : 99,9%
@@ -95,6 +98,8 @@ Amazon EC2 car ` Les instances à la demande vous permettent de payer la capacit
 
 
 ## Deux Serveurs d'Archivage 1 (Stockage des données des deux dernières années - Disponible) :
+Cold Archive : https://www.ovhcloud.com/fr/public-cloud/cold-archive/
+NB : Un message leur a été envoyé pour connaître le temps de récupération.
 
 #### SLA, Objectif de Disponibilité : 99,9%
     __Objectif__ : Stocker les données expérimentales des deux dernières années avec une disponibilité rapide.
@@ -121,8 +126,6 @@ Amazon EC2 car ` Les instances à la demande vous permettent de payer la capacit
 
 
 
-
-
 _________________________________________________________________________
 
 PaaS (Platform as a Service) :
@@ -134,12 +137,12 @@ PaaS (Platform as a Service) :
 
     Système de stockage des données :
     =================================
-        Abstraction de la gestion de l'infrastructure pour le stockage des données expérimentales avec des mécanismes de récupération.
+    Abstraction de la gestion de l'infrastructure pour le stockage des données expérimentales avec des mécanismes de récupération.
 
     !!! Système de traitement : !!!
     ===============================
 
-        Plateforme qui permet aux scientifiques d'écrire et d'exécuter des scripts Python sans se soucier de l'infrastructure sous-jacente.
+    Plateforme qui permet aux scientifiques d'écrire et d'exécuter des scripts Python sans se soucier de l'infrastructure sous-jacente.
 
     Contrôle d'accès et authentification :
     ======================================
@@ -189,3 +192,9 @@ Questions Additionnelles :
         - Combien de licences utilisateurs pour le service de traitement ?
 
         - Quel puissance de calcul (rapidité) souhaité/nécessaire pour vos opérations ? 
+
+
+
+
+        Perpestive cloude privé sécu 
+        https://www.ovhcloud.com/fr/enterprise/products/secnumcloud/
