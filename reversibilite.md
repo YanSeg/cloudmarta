@@ -5,3 +5,6 @@ Principes de la réversibilité :
  Compatibilité des données 
  Migration sans interruption
  Sécurité des données 
+
+
+https://help.ovhcloud.com/csm/fr-reversibility-dedicated-servers-reversibility-policy?id=kb_article_view&sysparm_article=KB0030085

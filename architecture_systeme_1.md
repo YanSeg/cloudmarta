@@ -31,7 +31,7 @@ Vos besoins :
 
 Architecture logicielle :
 =========================
-    - Module de réception des données :
+    - Module de réception des données (Trafic interne et public entrant compris dans l'offre ainsi que le trafic interne sortant):
     - 2 Système de stockage des données :
     - Système de traitement :
     - Contrôle d'accès et authentification :
@@ -64,6 +64,7 @@ Pour 99,9 % :
     Monthly: 43m 28s
     Quarterly: 2h 10m 24s
     Yearly: 8h 41m 38s
+    
 _____________________________________________________________________________________________________
 
 ## Serveur de réception des données : (IaaS)
@@ -74,7 +75,8 @@ ________________________________________________________________________________
 Gestion de l'infrastructure pour la réception et l'ingestion des données expérimentales.
 
 Dans le but d'être proche de Grenoble pour diminuer la latence nous choisirons OVH.
-Le service de stockage à 60j sera celui de l'object storage avec Object Lock (WORM) afin de s'assurer d'une couche suppérieur de protection.
+Le service de stockage à 60j sera celui de l'object storage avec Object Lock (WORM)  (https://help.ovhcloud.com/csm/fr-public-cloud-storage-s3-managing-object-lock?id=kb_article_view&sysparm_article=KB0047404) afin de s'assurer d'une couche suppérieur de protection.
+
 En effet les données ne pourrons pas être modifiées ni supprimées aproir avoir été réécrites. 
 
 ## Serveurs de stockage des données : (IaaS)
@@ -173,8 +175,9 @@ PaaS (Platform as a Service) :
 
 ______________________________________________________________________
 Des Questions pour la fin :
+
  - Sécurité/Sensibilités de vos données?
- - Envisagez-vous un stockage des données disponibles en local? 
+ - Envisagez-vous un stockage des données disponibles en local? buget? perspectives à long terme? 
 ______________________________________________________________________
 
 
